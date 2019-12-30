@@ -1,0 +1,30 @@
+.tittle{
+    background-color: #1e334a;
+    color: #f8fafc;
+    padding: 0.5em;
+}
+footer{
+    background-color: #1e334a;
+    margin-top: 20px;
+    text-align: center;
+    color: #f8fafc;
+    padding: 2em;
+}
+#menu-footer{
+    list-style: none;
+    text-align: center;
+    font-size: 0.8em;
+}
+#menu-footer li{
+    display: inline;
+    padding: 0.5em;
+}
+
+#more {display: none;}
+
+/*
+ *Oculta datos de representante en formulario de datos personales
+ */
+#is-a-minor{
+    display: none;
+}
