@@ -27,15 +27,39 @@ class CreateOtherInformationTable extends Migration
             $table->unsignedBigInteger('citizen_other_country')->nullable();
             $table->boolean('visa_request_before')->default(0);
             $table->string('identifier_uci')->nullable();
+            /*
+             * Home data
+             */
+            $table->string('street');
+            $table->string('another_street')->nullable();
+            $table->string('number');
+            $table->string('apartment')->nullable();
+            $table->string('town');
+            $table->unsignedBigInteger('country_home');
+            /*
+             * Personal history data
+             */
+            $table->boolean('access_denied')->default(0);
+            $table->longText('access_denied_comment')->nullable();
+            $table->boolean('have_tuberculosis')->default(0);
+            $table->longText('have_tuberculosis_comment')->nullable();
+            $table->string('health_condition');
+            $table->boolean('committed_crime')->default(0);
+
 
             /*
-             * Passport data relations
+             *  data relations
              */
             $table->foreign('persona_information_id')->references('id')
                 ->on('persona_information');
 
+            $table->foreign('country_home')->references('id')
+                ->on('countries');
+
+
             $table->foreign('country_id')->references('id')
                 ->on('countries');
+
 
             $table->foreign('citizen_other_country')->references('id')
                 ->on('countries');

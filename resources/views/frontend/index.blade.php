@@ -5,6 +5,7 @@
 
         <div>
             <p class="tittle">Datos Personales</p>
+
         </div>
 
         <form action="{{ route('datos-personales')  }}" method="POST">
@@ -12,12 +13,22 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-6 form-group">
 
+                        <div class="row">
+                            <div class="col-xs-8 col-sm-8 col-md-8 text-rigt">
+                            <label for="">Apellido(s)*</label>
+                            </div>
+                            <div class="col-xs-4 col-sm-4 col-md-4 text-right">
+                            <button type="button" class="btn btn-secondary text-right"
+                                    data-container="body" data-toggle="popover"
+                                    data-html="true"
+                                    data-placement="bottom" data-content="Texto de ayuda de la pregunta.">
+                                ?
+                            </button>
+                            </div>
+                        </div>
 
-                        <label for="">Apellido(s)*</label>
                         <input type="text" name="surnames" id="surnames" class="form-control" required>
-                        <div><p class="m-group-content--help">?</p></div>
                         <small>Escriba sus apellidos tal y como aparecen en su pasaporte</small>
-
 
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-6">
@@ -31,6 +42,7 @@
                 <div class="col-xs-12 col-sm-12 col-md-6 form-group">
                     <label for="birth_date">Fecha de nacimiento *</label>
                     <input type="date" name="birth_date" id="birth_date" class="form-control" required min="1900-01-01"  max="<?php echo date('Y-m-d') ?>">
+                    <input type="hidden" name="is_minor_flag" id="is_minor_flag">
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-6">
                     <label for="country_of_birth ">País de nacimiento*</label>
@@ -108,7 +120,7 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-6 form-group">
                     <label for="phone">Teléfono*</label>
-                    <input type="text" name="phone" id="phone" value="55904132" class="form-control" required>
+                    <input type="text" name="phone" id="phone"  class="form-control" required>
                 </div>
             </div>
 
@@ -136,7 +148,7 @@
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-6 form-group">
                         <label for="">Dirección Representante*</label>
-                        <input type="text" name="representative_address " id="representative_address " class="form-control">
+                        <input type="text" name="representative_address" id="representative_address" class="form-control">
                     </div>
 
                 </div>
@@ -164,11 +176,17 @@
                 http.onreadystatechange = function () {
                       if(parseInt(this.responseText) < 18){
                           document.getElementById('is-a-minor').style.display = "block";
-                          console.log("es menor");
+                          document.getElementById("is_minor_flag").value = "1";
+                          document.getElementById("representative_surnames").setAttribute("required", "required");
+                          document.getElementById("representative_name").setAttribute("required", "required");
+                          document.getElementById("representative_address").setAttribute("required", "required");
                       }else{
                           document.getElementById('is-a-minor').style.display = "none";
-                          console.log("es mayor");
-                    }
+                          document.getElementById("is_minor_flag").value = "0";
+                          document.getElementById("representative_surnames").removeAttribute("required");
+                          document.getElementById("representative_name").removeAttribute("required");
+                          document.getElementById("representative_address").removeAttribute("required");
+                      }
                 }
             });
         </script>

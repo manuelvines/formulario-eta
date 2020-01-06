@@ -27,8 +27,6 @@
         </a>
     </nav>
 
-     @yield('content')
-
     <div class="container">
         @if(isset($errors) && $errors->any())
             <div class="alert alert-danger">
@@ -50,15 +48,15 @@
             </div>
         @endif
     </div>
+     @yield('content')
+
 
     <footer>
 
 <div class="container">
     <div class="row">
-        <div class="col-md-1">
-            <img src="{{ asset('img/ssl.png')  }}" alt="Pagos seguros" class="img-fluid">
-        </div>
         <div class="col-md-2">
+            <img src="{{ asset('img/payments-methods/eta-pagos-seguros.png')  }}" alt="Pagos seguros" class="img-fluid">
             <small>
                 Su información personal es cifrada de forma segura por el Certificado de seguridad (SSL)
             </small>
@@ -83,40 +81,36 @@
     </div>
 </div>
 
+
+
 <div class="container">
 
-
-    <div class="row text-center">
-        <div class="col-auto">
-            <img src="{{ asset('img/payments-methods/visa.png')  }}" class="img-fluid">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <img src="{{ asset('img/payments-methods/eta-metodos-de-pago.png')  }}" alt="Medios de pago para permiso eTA" title="Permiso eTA Canadá" class="img-fluid">
         </div>
-        <div class="col-auto">
-            <img src="{{ asset('img/payments-methods/master-card.png')  }}" class="img-fluid">
-        </div>
-        <div class="col-auto">
-            <img src="{{ asset('img/payments-methods/amex.png')  }}" class="img-fluid">
-        </div>
-        <div class="col-auto">
-            <img src="{{ asset('img/payments-methods/oxxo.png')  }}" class="img-fluid">
-        </div>
-        <div class="col-auto">
-            <img src="{{ asset('img/payments-methods/7eleven.png')  }}" class="img-fluid">
-        </div>
-
-
     </div>
+
 
 </div>
 
 
-
-        <small>Aviso legal: canadianvisaeta.mx no está afiliada con el gobierno de Canada.</small>
-
     </footer>
+    <div class="aviso">
+        <small>Aviso legal: canadianvisaeta.mx no está afiliada con el gobierno de Canada.</small><br>
+        <small>
+            <a href="https://www.proyecciondigital.com.mx/" target="_blank">Diseñado por Proyección Digital 2020.</a>
 
+        </small>
+    </div>
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script>
+        $(function () {
+            $('[data-toggle="popover"]').popover()
+        })
+    </script>
     @stack('scripts')
 </body>
 </html>

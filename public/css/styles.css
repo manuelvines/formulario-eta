@@ -3,11 +3,23 @@
     color: #f8fafc;
     padding: 0.5em;
 }
-footer{
+.tittle-checked{
+    background-color: #00cf00;
+    color: #f8fafc;
+    padding: 0.5em;
+}
+.aviso{
+    padding: 0;
+    margin: 0;
+    width: 100%;
     background-color: #1e334a;
+    padding: 2em;
+    color: white;
+    text-align: center;
+}
+footer{
     margin-top: 20px;
     text-align: center;
-    color: #f8fafc;
     padding: 2em;
 }
 #menu-footer{
@@ -26,5 +38,34 @@ footer{
  *Oculta datos de representante en formulario de datos personales
  */
 #is-a-minor{
+    display: none;
+}
+/*
+¿Es usted ciudadano de cualquier otro país?
+ */
+#is_citizen{
+    display: none;
+}
+/*
+¿Ha solicitado anteriormente la entrada o la permanencia en Canadá? *
+ */
+#before_request{
+    display: none;
+}
+
+/*
+¿Alguna vez le han denegado un visado o permiso, le han negado la entrada o le han pedido que salga de Canadá? *
+ */
+#check_denied_container{
+    display: none;
+}
+/*
+En los últimos dos años, ¿le diagnosticaron tuberculosis o estuvo en contacto cercano con una persona con tuberculosis? *
+ */
+#check_tuberculosis_container{
+    display: none;
+}
+
+#notice_comitted_crime{
     display: none;
 }
